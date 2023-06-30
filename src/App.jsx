@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Logout from './componets/LogOut';
 import Login from './componets/LogIn';
@@ -8,13 +7,13 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   const handleLogin = (userData) => {
-    //  login done
+    // Thực hiện quá trình đăng nhập
     setLoggedIn(true);
     setUser(userData);
   };
 
   const handleLogout = () => {
-    // logout
+    // Thực hiện quá trình đăng xuất
     setLoggedIn(false);
     setUser(null);
   };
@@ -29,8 +28,8 @@ const App = () => {
 
       {isLoggedIn && (
         <div>
-          <h2>Well come to , {user.username}!</h2>
-          {/* Hiển thị content dành cho user login */}
+          <h2>Welcome to, {user.username}!</h2>
+          {/* Hiển thị nội dung dành cho người dùng đã đăng nhập */}
         </div>
       )}
     </div>
