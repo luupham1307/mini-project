@@ -1,36 +1,38 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleLogin = () => {
-        // check thông tin đăng nhập,
-        // Nếu thông tin hợp lệ, call hàm onLogin với thông tin user
+        // Kiểm tra thông tin đăng nhập,
+        // Nếu thông tin hợp lệ, gọi hàm onLogin với thông tin người dùng
         if (username !== '' && password !== '') {
             onLogin({ username, password });
 
-            // chuyen hướng
-            history.replace("/home");
+            // Chuyển hướng
+            navigate('/logout');
         }
     };
+
     return (
         <div>
+            <h2>Login</h2>
             <input
                 type="text"
-                placeholder="Tên đăng nhập"
+                placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
             <input
                 type="password"
-                placeholder="Mật khẩu"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleLogin}>Đăng nhập</button>
+            <button onClick={handleLogin}>Login</button>
         </div>
     );
 };
